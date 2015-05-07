@@ -1,0 +1,34 @@
+app
+.controller('$AppName',[
+function()
+{
+var self = this;
+self.data = [];
+#set( $count = 0 )  
+#set ($in1 =1)
+#set ($in2 =2)
+#set ($in3 =3)
+#set ($in4 =4)
+  #foreach( $pet in $petList )
+  
+self.data["$pet"]=[$in1,$in2,$in3,$in4];
+  #set( $count = $count + 1 )
+   #end
+self.delete = function(champ, index){
+alert(champ+" "+index);
+self.data[champ].splice(index,1);
+};
+
+self.new = function(champ){
+self.data[champ][self.data[champ].length] = self.input[champ];
+}
+
+self.save = function(champ, index){
+//self.data[champ][index]=self.save[champ][index];
+console.log('pas present sans persistence');
+alert('Alert imen');
+}
+
+}]);
+     
+            

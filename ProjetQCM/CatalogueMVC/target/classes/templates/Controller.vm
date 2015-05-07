@@ -1,0 +1,14 @@
+'use strict';
+angular.module('QCM',[])
+.controller('loginController',['$http','$window', '$location',  function( $http,$window, $location) {
+ var self=this;
+ self.checkLogs = function(){
+ if(self.user.login=='$name' && self.user.pwd=='$password'){
+alert('Ok imen'); console.log('Ok imen');
+  
+$window.location.replace('/imen/');
+$window.location.href = "/home/djerbienne/AngularOutput/index.html";
+}
+ else{
+alert('NNNNNNNNNNN imen');
+ }}}])

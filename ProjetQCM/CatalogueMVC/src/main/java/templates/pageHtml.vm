@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app='QCM'>
+<body>
+<h1>Hello {{1 + 2}}</h1>
+<script	src='../node_modules/angular/angular.js'></script>
+<script type='text/javascript' src='./loginController.js'</script>
+</script>
+<div ng-view></div>
+<div ng-controller = 'loginController as logCtrl'>
+<form ng-submit='logCtrl.checkLogs()' name='editionLog'>
+<input type='text' name='loginSecu' ng-model='logCtrl.user.login' ng-minlength='2' ng-maxlength='10' required/>
+<br/>
+<input type='password' name='PwdSecu' ng-model='logCtrl.user.pwd' required/>
+<br/>
+<input type='submit' value='confirmer'>
+</form>
+</body>
+</html>
+
+ 

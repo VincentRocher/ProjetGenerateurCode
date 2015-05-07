@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app=$AppName>
+<head>
+<meta charset="UTF-8">
+<script src="./js/angular.js"></script>
+<script src="./js/angular-resource.js" ></script>
+<script src="./js/angular-route.js" ></script>
+<script src="./src/controller/app.js" ></script>
+<script src="./src/controller/Default.js" ></script>
+</head>
+<body ng-controller = "controller as ctrl">
+ #if(($CRUD=="on")&&($petList != ""))
+	    	Liste de champ : 
+	    		 #foreach( $ind in $petList )
+	    	<li>$ind</li>
+	    		 #end
+	    		#foreach( $pet in $petList )
+	    	"Champ : " $pet
+	    	<div ng-repeat='val in ctrl.data["$pet"] track by $index'>
+	    	 <input type='text'  name='{{"save$pet["+$index+"]"}}' ng-model='ctrl.data["$pet"][$index]' value='{{val}}'/>{{$index}}
+			  <input type='button' ng-click='ctrl.save("$pet", $index)' value='Save'/>
+			  <input type='button' ng-click='ctrl.delete("$pet",$index)' value='delete'/>
+			 </br>
+	    	 </div>
+	    	  <input type='text' name='input["$pet"]' ng-model='ctrl.input["$pet"]'  value ='Nouveau'/>
+			  <input type='button' ng-click='ctrl.new("$pet")' value='Creer'/>
+			 </br>
+				 #end
+				
+ #end
+		
+</body>
+</html>
